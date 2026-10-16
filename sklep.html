@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dziennik — Oferta, Informacje, Regulamin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto;scroll-padding-top:90px}
+html:focus-within{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans','Segoe UI',Arial,sans-serif;color:#e8f1fb;min-height:100vh;overflow-x:hidden;
+background:radial-gradient(900px 480px at 85% -5%,rgba(56,189,248,.07),transparent 60%),radial-gradient(800px 500px at 8% 0%,rgba(99,102,241,.08),transparent 55%),linear-gradient(180deg,#01040a,#020817 45%,#01040a);background-attachment:fixed}
+.navwrap{position:sticky;top:14px;z-index:50;display:flex;justify-content:center;padding:0 12px}
+.navpill{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:center;background:rgba(5,11,26,.72);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid rgba(148,197,255,.18);border-radius:999px;padding:8px 10px;box-shadow:0 12px 40px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08);max-width:100%}
+.navpill .logo{font-family:'Sora',sans-serif;font-weight:800;font-size:15px;color:#fff;text-decoration:none;padding:8px 14px;border-radius:999px;background:linear-gradient(135deg,rgba(56,189,248,.35),rgba(99,102,241,.35));border:1px solid rgba(148,197,255,.3)}
+.navpill a.link{color:#c9dcf5;text-decoration:none;font-size:13.5px;font-weight:600;padding:9px 14px;border-radius:999px}
+.navpill a.link:hover{background:rgba(125,211,252,.15);color:#fff}
+.navpill a.cta{color:#06121f;text-decoration:none;font-size:13.5px;font-weight:800;padding:9px 18px;border-radius:999px;background:linear-gradient(135deg,#7dd3fc,#38bdf8,#818cf8)}
+main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:34px 20px 60px}
+.hero{margin-top:18px;text-align:center;padding:72px 34px;background:rgba(255,255,255,.035);backdrop-filter:blur(24px) saturate(1.5);-webkit-backdrop-filter:blur(24px) saturate(1.5);border:1px solid rgba(148,197,255,.16);border-radius:28px;box-shadow:0 24px 70px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.08)}
+.hero .kicker{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#7dd3fc;background:rgba(56,189,248,.12);border:1px solid rgba(125,211,252,.35);padding:7px 16px;border-radius:999px;margin-bottom:16px}
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(30px,5vw,52px);font-weight:800;margin-bottom:12px}
+.hero h1 .grad{background:linear-gradient(90deg,#7dd3fc,#818cf8,#22d3ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:#a9c0dd;font-size:16.5px;line-height:1.65;max-width:720px;margin:0 auto 8px}
+.hero .placeholder{margin:22px auto 0;max-width:760px;padding:26px;border-radius:18px;border:1.5px dashed rgba(125,211,252,.5);background:rgba(56,189,248,.06);color:#8fa8c7;font-size:14.5px;line-height:1.6}
+section.block{margin-top:110px;scroll-margin-top:90px}
+.sec-head{display:flex;align-items:baseline;justify-content:center;text-align:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;width:100%}
+.sec-head h2{font-family:'Sora',sans-serif;font-size:clamp(22px,3.4vw,32px);font-weight:800}
+.sec-head h2 .em{color:#7dd3fc}
+.sec-head small{color:#8fa8c7;font-size:13.5px;font-weight:600}
+.glass{background:rgba(255,255,255,.035);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid rgba(148,197,255,.14);border-radius:22px;box-shadow:0 18px 55px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07);padding:26px}
+.focusable{transition:opacity .45s ease}
+body.focusing .focusable{opacity:.25}
+body.focusing .focusable.active{opacity:1}
+.hero-feats{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.hero-feats span{font-size:13px;font-weight:700;color:#c9dcf5;background:rgba(255,255,255,.05);border:1px solid rgba(148,197,255,.2);border-radius:999px;padding:8px 16px}
+.offers{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.offer-group{font-family:Sora,sans-serif;font-size:20px;font-weight:800;margin:28px 0 14px;color:#fff}.offer-group span{color:#7dd3fc}.offer-group small{font-size:13px;color:#8fa8c7;font-weight:600;margin-left:10px}
+.offers-top{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.offers-bottom{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:820px;margin:-110px auto 0;align-items:stretch;position:relative;z-index:5}
+#oferty .sec-head{justify-content:center;text-align:center;width:100%}
+.puzzle{display:flex;gap:6px;justify-content:center;position:absolute;top:-28px;left:50%;transform:translateX(-50%);z-index:20}
+.puzzle span{font-family:'Sora',sans-serif;font-weight:800;font-size:38px;width:52px;height:58px;display:grid;place-items:center;border-radius:14px;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.35);box-shadow:0 6px 14px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.4),inset 0 -3px 0 rgba(0,0,0,.25);border:3px solid #f5e8c8}
+.puzzle span:nth-child(1){background:radial-gradient(circle at 30% 30%,#ff8a8a 2px,transparent 3px),radial-gradient(circle at 70% 60%,#ff8a8a 2px,transparent 3px),linear-gradient(135deg,#e11d48,#9f1239);transform:rotate(-5deg)}
+.puzzle span:nth-child(2){background:radial-gradient(circle at 50% 20%,#fef08a 3px,transparent 4px),radial-gradient(circle at 20% 75%,#fef08a 3px,transparent 4px),linear-gradient(135deg,#16a34a,#14532d);transform:rotate(3deg)}
+.puzzle span:nth-child(3){background:repeating-linear-gradient(45deg,rgba(255,255,255,.35) 0 4px,transparent 4px 9px),linear-gradient(135deg,#ec4899,#9d174d);transform:rotate(-3deg)}
+.puzzle span:nth-child(4){background:radial-gradient(circle at 30% 70%,#fff 2.5px,transparent 3.5px),radial-gradient(circle at 70% 25%,#fff 2.5px,transparent 3.5px),linear-gradient(135deg,#3b82f6,#1e3a8a);transform:rotate(4deg)}
+.offer.big{padding:34px 30px;min-height:420px;position:relative;z-index:6;overflow:visible;padding-top:44px}
+.offer.tall{min-height:430px;padding-bottom:52px}
+.puzzle span{animation:wiggle 1.7s ease-in-out infinite}
+.puzzle span:nth-child(2){animation-delay:.3s}
+.puzzle span:nth-child(3){animation-delay:.6s}
+.puzzle span:nth-child(4){animation-delay:.9s}
+@keyframes wiggle{0%,100%{translate:0 0}25%{translate:0 -3.5px}50%{translate:1.2px 1.2px}75%{translate:-1.2px 0}}
+.offer.lim30{min-height:430px;padding-bottom:52px}
+.offer.sale-red .tag,.offer.tall .tag{font-size:32px;letter-spacing:2.5px;font-weight:800;text-shadow:0 0 8px rgba(2,6,20,.95),0 0 18px rgba(5,10,30,.8)}
+.offer.sale-red .days,.offer.tall .days{font-size:34px}
+.offer.sale-red ul li,.offer.tall ul li{font-size:14px}
+.offer{transition:transform .25s ease}
+.offer:hover{transform:scale(1.07)}
+.offer .puzzle{pointer-events:none}
+.offer.big .puzzle{top:-28px}
+.offer.big h3{font-size:26px}
+.offer.big .price{font-size:36px}
+.offer.trial{padding-bottom:52px;min-height:430px}
+.offer{display:flex;flex-direction:column;gap:12px;padding:26px 22px;border-radius:22px;background:rgba(255,255,255,.035);backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid rgba(148,197,255,.14);box-shadow:0 18px 55px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07)}
+.offer .tag{font-size:15px;font-weight:800;letter-spacing:2px;color:#7dd3fc;text-transform:uppercase}
+.offer h3{font-family:'Sora',sans-serif;font-size:22px;font-weight:800}
+.offer .price{font-family:'Sora',sans-serif;font-size:17px;font-weight:800;color:#fff}
+.offer .price small{font-size:11px;color:#8fa8c7;font-weight:600}
+.offer.big .price{font-size:19px}
+.offer .days{font-family:'Sora',sans-serif;font-size:34px;font-weight:800;color:#fff;line-height:1.1}
+.offer.big .days{font-size:42px}
+.offer.trial{filter:grayscale(.8) brightness(.68);opacity:.75}
+.offer.ribbon{position:relative;overflow:hidden}
+.offer .corner{position:absolute;top:44px;right:-78px;transform:rotate(45deg);background:linear-gradient(135deg,#fde68a,#f59e0b);color:#1a1002;font-family:'Sora',sans-serif;font-size:13px;font-weight:800;letter-spacing:3px;padding:12px 84px 12px 160px;box-shadow:0 4px 16px rgba(251,191,36,.5);border-top:1px solid rgba(255,255,255,.6);border-bottom:1px solid rgba(0,0,0,.2);z-index:10;text-align:right;transition:top .5s ease}
+.offer.ribbon:hover .corner{top:64px}
+.offer .puzzle{z-index:30}
+.offer.sale-gold{border:1px solid rgba(148,197,255,.14);background:rgba(255,255,255,.035);box-shadow:0 18px 55px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07)}
+.offer.sale-red{border:1px solid rgba(148,197,255,.14);background:rgba(255,255,255,.035);box-shadow:0 18px 55px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07)}
+.offer .badge{align-self:flex-start;font-family:'Sora',sans-serif;font-weight:800;letter-spacing:.5px;border-radius:14px}
+.offer .badge.gold{color:#1a1002;font-size:23px;padding:12px 24px;background:linear-gradient(135deg,#fef3c7,#fbbf24 45%,#f59e0b);border:1px solid rgba(255,255,255,.6);transition:transform .25s ease;position:relative;box-shadow:0 0 25px 8px rgba(251,191,36,.65),0 0 60px 18px rgba(251,191,36,.30)}
+.offer .badge.gold:hover{transform:scale(1.12)}
+.offer .badge.red{color:#c9dcf5;background:rgba(255,255,255,.07);border:1px solid rgba(148,197,255,.3);box-shadow:none}
+.offer ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.offer ul li{font-size:14px;line-height:1.55;color:#c4d6ef;padding-left:22px;position:relative}
+.offer ul li::before{content:"✓";position:absolute;left:0;color:#38bdf8;font-weight:800}
+.offer .foot{margin-top:auto;padding-top:14px;border-top:1px solid rgba(148,197,255,.18);font-size:12.5px;color:#8fa8c7}
+.skel{border:1.5px dashed rgba(125,211,252,.45);border-radius:14px;padding:18px;background:rgba(56,189,248,.05);color:#8fa8c7;font-size:14px;line-height:1.65}
+.news{display:flex;flex-direction:column;gap:12px}
+.news-item{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(148,197,255,.18);font-size:16px}
+.news-item .nnum{font-family:'Sora',sans-serif;font-weight:800;font-size:18px;color:#06121f;background:linear-gradient(135deg,#7dd3fc,#38bdf8);border-radius:10px;min-width:38px;height:38px;display:grid;place-items:center}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+details.faq{border:1px solid rgba(148,197,255,.22);border-radius:14px;padding:16px 18px;background:rgba(255,255,255,.04);margin-bottom:10px}
+details.faq summary{cursor:pointer;font-weight:700;font-size:15px;color:#e8f1fb;list-style:none}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::before{content:"+ ";color:#38bdf8;font-weight:800}
+details.faq[open] summary::before{content:"- "}
+details.faq .a{margin-top:10px;color:#8fa8c7;font-size:14px;line-height:1.6}
+footer{margin-top:110px;text-align:center;color:#8fa8c7;font-size:13.5px;line-height:2;scroll-margin-top:90px;border-radius:22px;padding:26px;transition:box-shadow .4s ease}
+footer.flash{animation:footflash 3s ease}
+@keyframes footflash{0%{box-shadow:0 0 0 0 rgba(56,189,248,0)}10%{box-shadow:0 0 0 5px rgba(56,189,248,.9),0 0 90px rgba(56,189,248,.65),0 0 160px rgba(56,189,248,.3)}70%{box-shadow:0 0 0 4px rgba(56,189,248,.5),0 0 70px rgba(56,189,248,.4)}100%{box-shadow:0 0 0 0 rgba(56,189,248,0)}}
+footer .contact{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+footer .contact span{background:rgba(255,255,255,.06);border:1px solid rgba(148,197,255,.22);border-radius:999px;padding:8px 16px;display:inline-flex;align-items:center;gap:8px}
+footer .contact a{color:#e8f1fb;text-decoration:none;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(148,197,255,.22);border-radius:999px;padding:8px 18px;font-weight:700}
+footer .contact a:hover{border-color:#7dd3fc;background:rgba(125,211,252,.12)}
+footer .contact svg{width:18px;height:18px;fill:currentColor}
+@media(max-width:1000px){.offers{grid-template-columns:repeat(2,1fr)}.offers-top{grid-template-columns:repeat(2,1fr)}.offers-bottom{grid-template-columns:repeat(2,1fr);max-width:none}.grid2{grid-template-columns:1fr}}
+@media(max-width:560px){.offers{grid-template-columns:1fr}.offers-top{grid-template-columns:1fr}.offers-bottom{grid-template-columns:1fr}main{padding:24px 12px 50px}.hero{padding:36px 18px}}
+</style>
+</head>
+<body>
+<div class="navwrap"><nav class="navpill"><a class="link" href="#start">Start</a><a class="link" href="#nowosci">Nowości</a><a class="link" href="#oferty">Oferty</a><a class="link" href="#informacje">Informacje</a><a class="link" href="#regulamin">Regulamin</a><a class="link" href="#faq">FAQ</a><a class="cta" href="#kontakt">Kontakt</a></nav></div>
+<main>
+<header class="hero focusable" id="start"><div class="kicker">Oferta i Informacje i Regulamin</div><h1>Dziennik <span class="grad">Premium</span></h1><p class="sub" style="font-size:19px;max-width:820px">Twoj prywatny dziennik, dietetyk, trener i straznik czasu ekranu - w jednym miejscu, na Twoim telefonie. Wybierz dostep dla siebie: od darmowego testu 24 h, przez krotkie plany, az po kwartal z pelnym wsparciem i spolecznoscia.</p><div class="hero-feats"><span>Dziala offline</span><span>Poradnik w cenie dluzszych planow</span><span>Spolecznosc Discord</span><span>Platnosci poza strona - po prostu napisz</span></div>
+<!-- TU BEDZIE NOWY WSTEP (robimy pozniej) -->
+<div class="placeholder"><b style="color:#c9dcf5">Miejsce na nowy wstep</b><br>Tu pozniej wstawimy inna rzecz - na razie szkielet.</div></header>
+<section class="block focusable" id="nowosci"><div class="sec-head"><h2><span class="em">Nowosci</span></h2></div><div class="glass"><div class="news"><div class="news-item"><span class="nnum">1</span><b>Ukonczenie aplikacji</b></div><div class="news-item"><span class="nnum">2</span><b>Stworzenie strony</b></div><div class="news-item"><span class="nnum">3</span><b>Stworzenie Social Media</b></div><div class="news-item"><span class="nnum">4</span><b>Start projektu: XX.10.2026 r.</b></div></div></div></section>
+<section class="block focusable" id="oferty"><div class="sec-head"><h2>Nasze <span class="em">oferty</span></h2></div>
+<div class="offers-top">
+<div class="offer trial"><div class="days">Probna</div><div class="price">Free <small>/ 24 h</small></div><ul><li>Dostep do aplikacji na 24 h &nbsp;&nbsp;(LIMITY)</li><li>Sprawdz czy to dla Ciebie</li></ul></div>
+<div class="offer sale-red lim30"><div class="tag">Limity</div><div class="days">30 dni</div><div class="price">29,99 zl</div><ul><li>TYLKO LIMITY - dostep do limitow na 30 dni</li><li>Pomoc jak masz pytania</li></ul></div>
+<div class="offer sale-gold tall lim30"><div class="tag">Limity</div><div class="days">120 dni</div><div class="price">99,99 zl</div><div class="badge gold">RABAT 17%</div><ul><li>TYLKO LIMITY - dostep do limitow na 120 dni</li><li>Pomoc jak masz pytania</li></ul></div>
+</div>
+<div class="offers-bottom">
+<div class="offer big"><div class="puzzle"><span>F</span><span>U</span><span>L</span><span>L</span></div><div class="days">30 dni</div><div class="price">49,99 zl</div><ul><li>FULL - pelny dostep na 30 dni</li><li>Pomoc jak masz pytania</li><li>Dostajesz:</li><li>Dziennik + Notatki</li><li>Limity</li><li>Plany</li><li>Dieta</li><li>Sport</li><li>Cytaty + Nawyki</li><li>Chat</li></ul></div>
+<div style="position:relative"><div class="puzzle" style="position:absolute;top:-28px;left:50%;transform:translateX(-50%);z-index:30"><span>F</span><span>U</span><span>L</span><span>L</span></div><div class="offer big sale-gold ribbon"><div class="corner">NAJLEPSZA OFERTA</div><div class="days">120 dni</div><div class="price">149 zl</div><div class="badge gold">RABAT 26%</div><ul><li>FULL - pelny dostep na 120 dni</li><li>Pomoc jak masz pytania</li><li>Dostajesz:</li><li>Dziennik + Notatki</li><li>Limity</li><li>Plany</li><li>Dieta</li><li>Sport</li><li>Cytaty + Nawyki</li><li>Chat</li></ul></div></div>
+</div></section>
+<section class="block focusable" id="informacje"><div class="sec-head"><h2><span class="em">Informacje</span></h2></div><div class="grid2"><div class="glass"><h3 style="font-family:Sora,sans-serif;margin-bottom:10px">Co kupujesz</h3><div class="skel">[MIEJSCE NA TWOJ TEKST]<br><br>Tu sam napiszesz informacje.</div></div><div class="glass" id="platnosci"><h3 style="font-family:Sora,sans-serif;margin-bottom:10px">Platnosci i kontakt</h3><div class="skel">[MIEJSCE NA TWOJ TEKST]<br><br>Platnosci osobno poza strona. Kontakt: SMS / telefon / Discord / Gmail.<br><br>Tel/SMS: ___<br>Discord: ___<br>Gmail: ___</div></div></div></section>
+<section class="block focusable" id="regulamin"><div class="sec-head"><h2><span class="em">Regulamin</span></h2></div><div class="glass"><div class="skel">[MIEJSCE NA REGULAMIN]<br><br>1. ...<br>2. ...<br>3. ...</div></div></section>
+<section class="block focusable" id="faq"><div class="sec-head"><h2><span class="em">FAQ</span></h2></div><div class="glass">
+<details class="faq"><summary>Czy zbieracie jakies dane?</summary><div class="a">Jedyne dane jakie zbieramy to twoje imie i nazwisko KTORE PODAJESZ PRZY REJESTRACJI, nr tel i adres email oraz wiadomosci na chacie w aplikacji ktore sa w bazie danych. Cala reszta nie jest w ogole zbierana.</div></details>
+<details class="faq"><summary>Jak dokonuje sie zakupu?</summary><div class="a">---</div></details>
+<details class="faq"><summary>Pytanie 3 - [twoj tytul]</summary><div class="a">[Twoja odpowiedz]</div></details>
+<details class="faq"><summary>Pytanie 4 - [twoj tytul]</summary><div class="a">[Twoja odpowiedz]</div></details>
+<details class="faq"><summary>Pytanie 5 - [twoj tytul]</summary><div class="a">[Twoja odpowiedz]</div></details>
+</div></section>
+<footer id="kontakt">Masz pytania? Napisz - ustalimy plan i platnosc poza strona.<br><div class="contact"><span>Gmail: ___</span><span>Tel / SMS: ___</span><span>Discord: ___</span><a href="#" title="TikTok"><svg viewBox="0 0 24 24"><path d="M19.6 7.2c-.6-.3-1.1-.9-1.3-1.6-.1-.4-.2-.8-.2-1.2h-3.3v13.1c0 .9-.8 1.7-1.7 1.7-.9 0-1.7-.8-1.7-1.7 0-.9.8-1.7 1.7-1.7.2 0 .4 0 .6.1V9.5c-.2 0-.4-.1-.6-.1-2.8 0-5 2.2-5 5s2.2 5 5 5c2.8 0 5-2.2 5-5V9.7c.6.5 1.4.8 2.2.8V7.2h-.7z"/></svg>TikTok</a><a href="#" title="YouTube"><svg viewBox="0 0 24 24"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.4-1C16.6 3.6 12 3.6 12 3.6s-4.6 0-7.7.3c-.5.1-1.5.1-2.4 1-.7.7-.9 2.3-.9 2.3S.8 9.1.8 11v1.8c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.3 7.6.3s4.6 0 7.7-.4c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM9.8 15.1V8.5l6.1 3.3-6.1 3.3z"/></svg>YouTube</a></div><div style="margin-top:12px">Dziennik Premium</div></footer>
+</main>
+<script>
+if('scrollRestoration' in history){history.scrollRestoration='manual';}
+window.addEventListener('load',function(){if(!location.hash){window.scrollTo(0,0);}});
+(function(){
+  var blocks=document.querySelectorAll('.focusable');
+  if(!blocks.length)return;
+  var ticking=false, navLock=false, navTimer=null;
+  document.querySelectorAll('.navpill a').forEach(function(a){
+    a.addEventListener('click',function(){
+      navLock=true;
+      if(navTimer)clearTimeout(navTimer);
+      navTimer=setTimeout(function(){navLock=false;update();},400);
+    });
+  });
+  function update(){
+    ticking=false;
+    if(navLock)return;
+    var mid=window.innerHeight*0.5, best=null, bestD=1e9;
+    blocks.forEach(function(b){
+      var r=b.getBoundingClientRect();
+      if(r.bottom<0||r.top>window.innerHeight)return;
+      var c=r.top+r.height/2, d=Math.abs(c-mid);
+      if(d<bestD){bestD=d;best=b;}
+    });
+    if(best){
+      document.body.classList.add('focusing');
+      blocks.forEach(function(b){b.classList.toggle('active',b===best);});
+    }else{
+      document.body.classList.remove('focusing');
+      blocks.forEach(function(b){b.classList.remove('active');});
+    }
+  }
+  window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+  window.addEventListener('resize',update);
+  update();
+  var cta=document.querySelector('.navpill a.cta'), foot=document.getElementById('kontakt');
+  if(cta&&foot){cta.addEventListener('click',function(){setTimeout(function(){foot.classList.remove('flash');void foot.offsetWidth;foot.classList.add('flash');},250);});}
+})();
+</script>
+</body>
+</html>
